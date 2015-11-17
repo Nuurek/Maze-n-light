@@ -66,7 +66,7 @@ void Labyrinth::solveMaze()
 {
 	MazeSolver solver(width, height);
 	solver.loadLabyrinth(*this);
-	solver.solveMaze(Coordinates(width / 2, height /2), exit);
+	std::pair<unsigned int, std::vector<Coordinates>> solution = solver.solveMaze(Coordinates(width / 2, height /2), exit);
 }
 
 void Labyrinth::draw(sf::RenderWindow & window, float deltaTime)
@@ -76,12 +76,13 @@ void Labyrinth::draw(sf::RenderWindow & window, float deltaTime)
 		for (unsigned int x = 0; x < width; x++)
 		{
 			sf::Vector2f position;
-			position.x = static_cast<float>(x * Tile::tileSize);
-			position.y = static_cast<float>(y * Tile::tileSize);
+			position.x = static_cast<float>(x * Tile::frameSize);
+			position.y = static_cast<float>(y * Tile::frameSize);
 			tiles[y * width + x].sprite.setPosition(position);
 			tiles[y * width + x].draw(window, deltaTime);
 		}
 	}
+
 }
 
 Labyrinth::Labyrinth(unsigned int width, unsigned int height, TextureManager& textureManager,

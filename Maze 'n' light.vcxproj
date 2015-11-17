@@ -149,9 +149,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Maze %27n%27 light\Maze %27n%27 light\AnimationHandler.cpp" />
+    <ClCompile Include="..\..\Maze %27n%27 light\Maze %27n%27 light\Gui.cpp" />
     <ClCompile Include="..\..\Maze %27n%27 light\Maze %27n%27 light\Labyrinth.cpp" />
     <ClCompile Include="..\..\Maze %27n%27 light\Maze %27n%27 light\MazeGenerator.cpp" />
     <ClCompile Include="..\..\Maze %27n%27 light\Maze %27n%27 light\MazeSolver.cpp" />
+    <ClCompile Include="..\..\Maze %27n%27 light\Maze %27n%27 light\Player.cpp" />
     <ClCompile Include="..\..\Maze %27n%27 light\Maze %27n%27 light\TextureManager.cpp" />
     <ClCompile Include="..\..\Maze %27n%27 light\Maze %27n%27 light\Tile.cpp" />
     <ClCompile Include="GameState.cpp" />
@@ -164,10 +166,12 @@
     <ClInclude Include="..\..\Maze %27n%27 light\Maze %27n%27 light\Animation.h" />
     <ClInclude Include="..\..\Maze %27n%27 light\Maze %27n%27 light\AnimationHandler.h" />
     <ClInclude Include="..\..\Maze %27n%27 light\Maze %27n%27 light\Directions.h" />
+    <ClInclude Include="..\..\Maze %27n%27 light\Maze %27n%27 light\Gui.h" />
     <ClInclude Include="..\..\Maze %27n%27 light\Maze %27n%27 light\Labyrinth.h" />
     <ClInclude Include="..\..\Maze %27n%27 light\Maze %27n%27 light\MazeGenerator.h" />
     <ClInclude Include="..\..\Maze %27n%27 light\Maze %27n%27 light\MazePrimitive.h" />
     <ClInclude Include="..\..\Maze %27n%27 light\Maze %27n%27 light\MazeSolver.h" />
+    <ClInclude Include="..\..\Maze %27n%27 light\Maze %27n%27 light\Player.h" />
     <ClInclude Include="..\..\Maze %27n%27 light\Maze %27n%27 light\TextureManager.h" />
     <ClInclude Include="..\..\Maze %27n%27 light\Maze %27n%27 light\Tile.h" />
     <ClInclude Include="GameState.h" />

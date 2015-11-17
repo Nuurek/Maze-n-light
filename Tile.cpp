@@ -15,7 +15,7 @@ Tile::Tile(bool collision, sf::Texture& texture, const std::vector<Animation>& a
 {
 	sprite.setOrigin(sf::Vector2f(0.0f, 0.0f));
 	sprite.setTexture(texture);
-	animationHandler.frameSize = sf::IntRect(0, 0, tileSize, tileSize);
+	animationHandler.frameSize = sf::IntRect(0, 0, frameSize, frameSize);
 	for (auto animation : animations)
 		animationHandler.addAnim(animation);
 	animationHandler.update(0.0f);

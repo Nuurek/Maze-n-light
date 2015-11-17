@@ -9,6 +9,7 @@ void GameManager::loadTextures()
 	textureManager.loadTexture("wallTexture", "media/wall.png");
 	textureManager.loadTexture("tileTexture", "media/tile.png");
 	textureManager.loadTexture("exitTexture", "media/exit.png");
+	textureManager.loadTexture("playerTexture", "media/player.png");
 }
 
 void GameManager::loadTiles()

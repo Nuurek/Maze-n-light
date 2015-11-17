@@ -14,7 +14,7 @@ public:
 	AnimationHandler animationHandler;
 	sf::Sprite sprite;
 
-	static const unsigned int tileSize = 48;
+	static const unsigned int frameSize = 48;
 	bool makeCollision;
 	unsigned int tileType;
 	

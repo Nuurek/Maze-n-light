@@ -6,7 +6,7 @@
 template <class NodeType> class MazePrimitive
 {
 protected:
-	using Coordinates = std::pair<unsigned int, unsigned int>;
+	std::vector<NodeType> maze;
 
 	unsigned int index(unsigned int row, unsigned int column)
 	{
@@ -16,12 +16,13 @@ protected:
 	{
 		return std::pair<unsigned int, unsigned int>(index / width, index % width);
 	}
-
 public:
-
 	unsigned int width, height;
 
-	std::vector<NodeType> maze;
+	NodeType at(unsigned int x, unsigned int y) const
+	{
+		return maze[index(x, y)];
+	}
 
 	MazePrimitive(unsigned int newWidth, unsigned int newHeight)
 		: width(newWidth), height(newHeight) { }

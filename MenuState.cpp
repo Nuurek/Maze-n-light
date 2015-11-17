@@ -2,7 +2,7 @@
 
 void MenuState::loadGame()
 {
-	game->pushState(std::make_shared<GameState>(game));
+	game->pushState(std::make_shared<GameState>(game, 23));
 }
 
 void MenuState::draw(const float dt)

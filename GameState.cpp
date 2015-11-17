@@ -2,14 +2,19 @@
 
 void GameState::draw(const float deltaTime)
 {
+	auto truePosition = player.truePosition();
+	sf::err() << "[" << truePosition.first << "][" << truePosition.second << "\n";
+	gameView.setCenter(truePosition.first, truePosition.second);
+	game->window.setView(gameView);
 	game->window.clear();
 	game->window.draw(background);
 	labyrinth.draw(game->window, deltaTime);
+	player.draw(game->window, deltaTime);
 }
 
-void GameState::update(const float dt)
+void GameState::update(const float deltaTime)
 {
-
+	player.update(deltaTime);
 }
 
 void GameState::handleInput()
@@ -28,10 +33,24 @@ void GameState::handleInput()
 
 			case sf::Event::KeyPressed:
 			{
-				if (event.key.code == sf::Keyboard::Escape)
-					game->popState();
-				else if (event.key.code == sf::Keyboard::S)
-					labyrinth.solveMaze();
+				switch (event.key.code)
+				{
+					case (sf::Keyboard::Up) :
+						player.move(Directions::Up);
+						break;
+					case (sf::Keyboard::Right) :
+						player.move(Directions::Right);
+						break;
+					case (sf::Keyboard::Down) :
+						player.move(Directions::Down);
+						break;
+					case (sf::Keyboard::Left) :
+						player.move(Directions::Left);
+						break;
+					case (sf::Keyboard::Escape) :
+						game->popState();
+						break;
+				}
 			}
 			default: 
 			break;
@@ -39,8 +58,9 @@ void GameState::handleInput()
 	}
 }
 
-GameState::GameState(std::shared_ptr<GameManager> game)
-	: labyrinth(Labyrinth(11, 11, game->textureManager, game->tileAtlas))
+GameState::GameState(std::shared_ptr<GameManager> game, unsigned int size)
+	: labyrinth(Labyrinth(size, size, game->textureManager, game->tileAtlas)), player({ size / 2, size / 2 }, 
+		game->textureManager, std::make_shared<Labyrinth>(labyrinth))
 {
 	this->game = game;
 	background.setTexture(game->textureManager.getTexture("labyrinthBackground"));
