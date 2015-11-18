@@ -3,7 +3,6 @@
 void GameState::draw(const float deltaTime)
 {
 	auto truePosition = player.truePosition();
-	sf::err() << "[" << truePosition.first << "][" << truePosition.second << "\n";
 	gameView.setCenter(truePosition.first, truePosition.second);
 	game->window.setView(gameView);
 	game->window.clear();

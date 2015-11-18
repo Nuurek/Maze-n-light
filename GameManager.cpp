@@ -21,6 +21,25 @@ void GameManager::loadTiles()
 	tileAtlas["exit"] = Tile(false, textureManager.getTexture("exitTexture"), staticAnimationVector);
 }
 
+void GameManager::loadStyleSheets()
+{
+	styleSheets["button"] = GuiStyle(std::make_shared<sf::Font>(fonts.at("main_font")), 1,
+		sf::Color(0xc6, 0xc6, 0xc6), sf::Color(0x94, 0x94, 0x94), sf::Color(0x00, 0x00, 0x00),
+		sf::Color(0x61, 0x61, 0x61), sf::Color(0x94, 0x94, 0x94), sf::Color(0x00, 0x00, 0x00));
+	styleSheets["text"] = GuiStyle(std::make_shared<sf::Font>(fonts.at("main_font")), 0,
+		sf::Color(0x00, 0x00, 0x00, 0x00), sf::Color(0x00, 0x00, 0x00), sf::Color(0xff, 0xff, 0xff),
+		sf::Color(0x00, 0x00, 0x00, 0x00), sf::Color(0x00, 0x00, 0x00), sf::Color(0xff, 0x00, 0x00));
+
+	return;
+}
+
+void GameManager::loadFonts()
+{
+	sf::Font font;
+	font.loadFromFile("media/font.ttf");
+	this->fonts["main_font"] = font;
+}
+
 void GameManager::pushState(std::shared_ptr<State> state)
 {
 	states.push(state);
@@ -70,6 +89,8 @@ GameManager::GameManager()
 {
 	loadTextures();
 	loadTiles();
+	loadFonts();
+	loadStyleSheets();
 
 	window.create(sf::VideoMode(800, 600), "Maze 'n' light", sf::Style::Titlebar | sf::Style::Close);
 	window.setFramerateLimit(30);

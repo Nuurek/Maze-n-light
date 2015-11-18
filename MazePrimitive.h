@@ -19,7 +19,7 @@ protected:
 public:
 	unsigned int width, height;
 
-	NodeType at(unsigned int x, unsigned int y) const
+	NodeType at(unsigned int x, unsigned int y)
 	{
 		return maze[index(x, y)];
 	}

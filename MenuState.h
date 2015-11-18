@@ -8,6 +8,8 @@ class MenuState :
 {
 	sf::View view;
 
+	std::map<std::string, Gui> guiSystem;
+
 	void loadGame();
 
 public:
