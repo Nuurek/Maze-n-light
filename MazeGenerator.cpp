@@ -127,12 +127,12 @@ auto MazeGenerator::getRandomExit() -> Coordinates
 		do
 		{
 			row = distribution(_randomEngine);
-		} while ((edge == 1 && maze[index(row, column - 1)] == 1) || (edge == 2 && maze[index(row, column + 1)] == 1));
+		} while ((edge == 1 && maze[index(row, column - 1)] == 1) || (edge == 3 && maze[index(row, column + 1)] == 1));
 	}
 
 	maze[index(row, column)] = 0;
 
-	return std::pair<unsigned int, unsigned int>(row, column);
+	return Coordinates(row, column);
 }
 
 MazeGenerator::MazeGenerator(unsigned int width, unsigned int height)

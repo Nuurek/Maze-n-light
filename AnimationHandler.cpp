@@ -15,7 +15,6 @@ void AnimationHandler::update(const float deltaTime)
 	float duration = animations[currentAnimation].duration;
 
 	unsigned int frame = static_cast<unsigned int>((time + deltaTime) / duration);
-
 	if (frame > static_cast<unsigned int>(time / duration))
 	{
 		frame %= animations[currentAnimation].getLength();

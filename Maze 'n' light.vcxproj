@@ -118,16 +118,18 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>C:\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>C:\SFML\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-system.lib;sfml-window.lib;sfml-graphics.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>sfml-system.lib;sfml-window.lib;sfml-graphics.lib;sfml-main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <EntryPointSymbol>
+      </EntryPointSymbol>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -150,9 +152,11 @@
   <ItemGroup>
     <ClCompile Include="..\..\Maze %27n%27 light\Maze %27n%27 light\AnimationHandler.cpp" />
     <ClCompile Include="..\..\Maze %27n%27 light\Maze %27n%27 light\Gui.cpp" />
+    <ClCompile Include="..\..\Maze %27n%27 light\Maze %27n%27 light\HighScoresState.cpp" />
     <ClCompile Include="..\..\Maze %27n%27 light\Maze %27n%27 light\Labyrinth.cpp" />
     <ClCompile Include="..\..\Maze %27n%27 light\Maze %27n%27 light\MazeGenerator.cpp" />
     <ClCompile Include="..\..\Maze %27n%27 light\Maze %27n%27 light\MazeSolver.cpp" />
+    <ClCompile Include="..\..\Maze %27n%27 light\Maze %27n%27 light\OptionsState.cpp" />
     <ClCompile Include="..\..\Maze %27n%27 light\Maze %27n%27 light\Player.cpp" />
     <ClCompile Include="..\..\Maze %27n%27 light\Maze %27n%27 light\TextureManager.cpp" />
     <ClCompile Include="..\..\Maze %27n%27 light\Maze %27n%27 light\Tile.cpp" />
@@ -167,10 +171,12 @@
     <ClInclude Include="..\..\Maze %27n%27 light\Maze %27n%27 light\AnimationHandler.h" />
     <ClInclude Include="..\..\Maze %27n%27 light\Maze %27n%27 light\Directions.h" />
     <ClInclude Include="..\..\Maze %27n%27 light\Maze %27n%27 light\Gui.h" />
+    <ClInclude Include="..\..\Maze %27n%27 light\Maze %27n%27 light\HighScoresState.h" />
     <ClInclude Include="..\..\Maze %27n%27 light\Maze %27n%27 light\Labyrinth.h" />
     <ClInclude Include="..\..\Maze %27n%27 light\Maze %27n%27 light\MazeGenerator.h" />
     <ClInclude Include="..\..\Maze %27n%27 light\Maze %27n%27 light\MazePrimitive.h" />
     <ClInclude Include="..\..\Maze %27n%27 light\Maze %27n%27 light\MazeSolver.h" />
+    <ClInclude Include="..\..\Maze %27n%27 light\Maze %27n%27 light\OptionsState.h" />
     <ClInclude Include="..\..\Maze %27n%27 light\Maze %27n%27 light\Player.h" />
     <ClInclude Include="..\..\Maze %27n%27 light\Maze %27n%27 light\TextureManager.h" />
     <ClInclude Include="..\..\Maze %27n%27 light\Maze %27n%27 light\Tile.h" />

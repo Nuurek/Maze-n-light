@@ -75,6 +75,8 @@ public:
 
 	void highlight(const int entry);
 
+	void resetHighlights();
+
 	std::string activate(const int entry);
 	std::string activate(const sf::Vector2f mousePosition);
 

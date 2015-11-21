@@ -54,6 +54,12 @@
     <ClCompile Include="..\..\Maze %27n%27 light\Maze %27n%27 light\Gui.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Maze %27n%27 light\Maze %27n%27 light\HighScoresState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Maze %27n%27 light\Maze %27n%27 light\OptionsState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Maze %27n%27 light\Maze %27n%27 light\GameManager.h">
@@ -99,6 +105,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Maze %27n%27 light\Maze %27n%27 light\Gui.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Maze %27n%27 light\Maze %27n%27 light\HighScoresState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Maze %27n%27 light\Maze %27n%27 light\OptionsState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

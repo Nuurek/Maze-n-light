@@ -20,6 +20,11 @@ class GameManager
 	void loadFonts();
 
 public:
+	const std::string saveFilename = "gamesave.dat";
+	const std::string scoresFilename = "highscores.dat";
+	const int highScoresNumber = 10;
+
+
 	std::stack<std::shared_ptr<State>> states;
 	
 	sf::RenderWindow window;
@@ -34,6 +39,7 @@ public:
 	std::shared_ptr<State> currentState();
 
 	void gameLoop();
+	void closeGame();
 
 	GameManager();
 	~GameManager();

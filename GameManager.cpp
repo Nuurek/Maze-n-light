@@ -16,20 +16,22 @@ void GameManager::loadTiles()
 {
 	Animation staticAnimation(0, 0, 1.0f);
 	auto staticAnimationVector = std::vector<Animation>(16, staticAnimation);
-	tileAtlas["corridor"] = Tile(false, textureManager.getTexture("tileTexture"), staticAnimationVector);
-	tileAtlas["wall"] = Tile(true, textureManager.getTexture("wallTexture"), staticAnimationVector);
-	tileAtlas["exit"] = Tile(false, textureManager.getTexture("exitTexture"), staticAnimationVector);
+	tileAtlas["tunnel"] = Tile(TileType::Tunnel, false, textureManager.getTexture("tileTexture"), staticAnimationVector);
+	tileAtlas["wall"] = Tile(TileType::Wall, true, textureManager.getTexture("wallTexture"), staticAnimationVector);
+	tileAtlas["exit"] = Tile(TileType::Exit, false, textureManager.getTexture("exitTexture"), staticAnimationVector);
 }
 
 void GameManager::loadStyleSheets()
 {
-	styleSheets["button"] = GuiStyle(std::make_shared<sf::Font>(fonts.at("main_font")), 1,
-		sf::Color(0xc6, 0xc6, 0xc6), sf::Color(0x94, 0x94, 0x94), sf::Color(0x00, 0x00, 0x00),
-		sf::Color(0x61, 0x61, 0x61), sf::Color(0x94, 0x94, 0x94), sf::Color(0x00, 0x00, 0x00));
 	styleSheets["text"] = GuiStyle(std::make_shared<sf::Font>(fonts.at("main_font")), 0,
 		sf::Color(0x00, 0x00, 0x00, 0x00), sf::Color(0x00, 0x00, 0x00), sf::Color(0xff, 0xff, 0xff),
 		sf::Color(0x00, 0x00, 0x00, 0x00), sf::Color(0x00, 0x00, 0x00), sf::Color(0xff, 0x00, 0x00));
-
+	styleSheets["text2"] = GuiStyle(std::make_shared<sf::Font>(fonts.at("main_font")), 4,
+		sf::Color(0x00, 0x00, 0x00, 0x66), sf::Color(0x00, 0x00, 0x00, 0xDD), sf::Color(0x00, 0x00, 0x00, 0x00),
+		sf::Color(0x00, 0x00, 0x00, 0x00), sf::Color(0xAA, 0x00, 0x00), sf::Color(0xff, 0x00, 0x00));
+	styleSheets["final_credits"] = GuiStyle(std::make_shared<sf::Font>(fonts.at("main_font")), 0,
+		sf::Color(0x15, 0x0d, 0x05, 0x88), sf::Color(0x00, 0x00, 0x00, 0x88), sf::Color(0x00, 0x00, 0x00, 0x88),
+		sf::Color(0x00, 0x00, 0x00, 0x88), sf::Color(0xff, 0x00, 0x00), sf::Color(0xff, 0x00, 0x00));
 	return;
 }
 
@@ -38,6 +40,14 @@ void GameManager::loadFonts()
 	sf::Font font;
 	font.loadFromFile("media/font.ttf");
 	this->fonts["main_font"] = font;
+}
+
+void GameManager::closeGame()
+{
+	while (!states.empty())
+		popState();
+	window.close();
+	
 }
 
 void GameManager::pushState(std::shared_ptr<State> state)
@@ -75,9 +85,10 @@ void GameManager::gameLoop()
 		elapsed = clock.restart();
 		deltaTime = elapsed.asSeconds();
 
-		if (currentState() == nullptr)
-			continue;
+		
 		currentState()->handleInput();
+		if (currentState() == nullptr)
+			continue; 
 		currentState()->update(deltaTime);
 		window.clear(sf::Color::Black);
 		currentState()->draw(deltaTime);

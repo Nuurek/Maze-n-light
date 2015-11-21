@@ -4,14 +4,14 @@
 
 void Tile::draw(sf::RenderWindow & window, float deltaTime)
 {
-	animationHandler.changeAnimation(tileType);
+	animationHandler.changeAnimation(orientation);
 	animationHandler.update(deltaTime);
 	sprite.setTextureRect(animationHandler.bounds);
 	window.draw(sprite);
 }
 
-Tile::Tile(bool collision, sf::Texture& texture, const std::vector<Animation>& animations)
-	: makeCollision(collision) 
+Tile::Tile(TileType type, bool collision, sf::Texture& texture, const std::vector<Animation>& animations)
+	: tileType(type), makeCollision(collision) 
 {
 	sprite.setOrigin(sf::Vector2f(0.0f, 0.0f));
 	sprite.setTexture(texture);

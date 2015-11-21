@@ -12,9 +12,9 @@ protected:
 	{
 		return row * width + column;
 	}
-	std::pair<unsigned int, unsigned int>indexToCoordinates(unsigned int index)
+	Coordinates indexToCoordinates(unsigned int index)
 	{
-		return std::pair<unsigned int, unsigned int>(index / width, index % width);
+		return Coordinates(index / width, index % width);
 	}
 public:
 	unsigned int width, height;
@@ -24,6 +24,7 @@ public:
 		return maze[index(x, y)];
 	}
 
+	MazePrimitive() : width(0), height(0) {};
 	MazePrimitive(unsigned int newWidth, unsigned int newHeight)
 		: width(newWidth), height(newHeight) { }
 };

@@ -16,11 +16,12 @@ public:
 
 	static const unsigned int frameSize = 48;
 	bool makeCollision;
-	unsigned int tileType;
+	unsigned int orientation;
+	TileType tileType;
 	
 	void draw(sf::RenderWindow& window, float deltaTime);
 
 	Tile() {}
-	Tile(bool collision, sf::Texture& texture, const std::vector<Animation>& animations);
+	Tile(TileType type, bool collision, sf::Texture& texture, const std::vector<Animation>& animations);
 };
 

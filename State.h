@@ -1,12 +1,17 @@
 #pragma once
 #include <memory>
+#include <fstream>
 #include "GameManager.h"
 #include "TextureManager.h"
+#include "Gui.h"
 
 class GameManager;
 
 class State
 {
+protected:
+	std::map<std::string, Gui> guiSystem;
+
 public:
 	std::shared_ptr<GameManager> game;
 	sf::Sprite background;
