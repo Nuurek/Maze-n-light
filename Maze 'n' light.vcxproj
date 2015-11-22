@@ -185,6 +185,9 @@
     <ClInclude Include="State.h" />
     <ClInclude Include="MenuState.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Maze %27n%27 light\Maze %27n%27 light\ClassDiagram.cd" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -114,4 +114,7 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Maze %27n%27 light\Maze %27n%27 light\ClassDiagram.cd" />
+  </ItemGroup>
 </Project>

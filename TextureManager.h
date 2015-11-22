@@ -3,6 +3,7 @@
 #include <map>
 #include "SFML/Graphics.hpp"
 
+//Class that maps textures to std::strings for easier use.
 class TextureManager
 {
 	std::map<std::string, sf::Texture> textures;

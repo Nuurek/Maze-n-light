@@ -3,6 +3,11 @@
 #include "Directions.h"
 #include <vector>
 
+//Base class for all maze classes.
+//Contains 2D array of nodes stored in 1D vector.
+//Protected functions allow to convert 1D index into 2D coordinates
+//and the other way around.
+//Public functions return a node at given coordinates.
 template <class NodeType> class MazePrimitive
 {
 protected:

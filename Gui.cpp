@@ -19,7 +19,7 @@ Gui::Gui(sf::Vector2f dimensions, int padding, bool horizontal,
 		text.setString(entry.first);
 		text.setFont(*style.font);
 		text.setColor(style.textColor);
-		text.setCharacterSize(dimensions.y - style.borderSize - padding);
+		text.setCharacterSize(static_cast<unsigned int>(dimensions.y - style.borderSize) - padding);
 
 		this->entries.push_back(GuiEntry(entry.second, shape, text));
 	}
@@ -37,7 +37,7 @@ int Gui::getEntry(const sf::Vector2f mousePosition)
 	if (!visible)
 		return -1;
 
-	for (int i = 0; i < entries.size(); ++i)
+	for (unsigned int i = 0; i < entries.size(); ++i)
 	{
 		sf::Vector2f point = mousePosition;
 		point += entries[i].shape.getOrigin();
@@ -53,7 +53,7 @@ int Gui::getEntry(const sf::Vector2f mousePosition)
 	return -1;
 }
 
-void Gui::setEntryText(int entry, std::string text)
+void Gui::setEntryText(unsigned int entry, std::string text)
 {
 	if (entry >= entries.size() || entry < 0)
 		return;
@@ -68,7 +68,7 @@ void Gui::setDimensions(sf::Vector2f dimensions)
 	for (auto& entry : entries)
 	{
 		entry.shape.setSize(dimensions);
-		entry.text.setCharacterSize(dimensions.y - style.borderSize - padding);
+		entry.text.setCharacterSize(static_cast<unsigned int>(dimensions.y - style.borderSize) - padding);
 	}
 }
 
@@ -113,7 +113,7 @@ void Gui::hide()
 
 void Gui::highlight(const int entry)
 {
-	for (int i = 0; i < entries.size(); ++i)
+	for (unsigned int i = 0; i < entries.size(); ++i)
 	{
 		if (i == entry)
 		{

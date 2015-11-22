@@ -5,12 +5,10 @@
 #include "HighScoresState.h"
 #include "OptionsState.h"
 
+//Menu state contains GUI system derived from State class.
 class MenuState :
 	public State
 {
-	const std::string& saveFilename = game->saveFilename;
-	const std::string& scoresFilename = game->scoresFilename;
-
 	sf::View view;
 
 public:

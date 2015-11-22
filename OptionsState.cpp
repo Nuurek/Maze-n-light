@@ -193,8 +193,8 @@ OptionsState::OptionsState(std::shared_ptr<GameManager> game)
 
 	guiSystem.emplace("buttons", Gui(sf::Vector2f(inputWidth, inputHeight), 4, false, game->styleSheets.at("text2"),
 	{
-		std::make_pair("Back", "exit_to_menu"),
-		std::make_pair("Start", "start_game")
+		std::make_pair("Start", "start_game"),
+		std::make_pair("Back", "exit_to_menu")
 	}));
 	guiSystem.at("buttons").setPosition(static_cast<float>(game->window.getSize().x) / 2.0f,
 		static_cast<float>(game->window.getSize().y) / 1.5f - (static_cast<float>(guiSystem.at("buttons").entries.size() - 1) * 0.5f) * inputHeight);

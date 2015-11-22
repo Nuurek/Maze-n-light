@@ -97,7 +97,7 @@ void GameState::update(const float deltaTime)
 
 				text = guiSystem.at("final").entries[3].text.getString();
 				unsigned int score = static_cast<unsigned int>(static_cast<float>(labyrinth.shortestPathLength / static_cast<float>(player.stepsCount))
-					* static_cast<float>(labyrinth.width * labyrinth.height));
+					* static_cast<float>(labyrinth.width + labyrinth.height));
 				text += std::to_string(score);
 				guiSystem.at("final").entries[3].text.setString(text);
 

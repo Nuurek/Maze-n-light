@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AnimationHandler">
+    <Position X="9.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAACIQAAAAAAAAAAAAAAgAAEAAAAAACIAAEAAA=</HashCode>
+      <FileName>AnimationHandler.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GuiStyle">
+    <Position X="11.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIIAAAAAAAAAAAACAJACAAAAAAEAAkAAAAAAAAAAAA=</HashCode>
+      <FileName>Gui.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GuiEntry">
+    <Position X="9.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAABCE=</HashCode>
+      <FileName>Gui.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Gui">
+    <Position X="13.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAEAAAIAAAAAAAgMgQBAAAggEAAAABABACAAKAAA=</HashCode>
+      <FileName>Gui.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HighScoresState">
+    <Position X="1.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAABAAAAAAABAAASAIAAAAAAAAAAAIAAQAAAAgEAAA=</HashCode>
+      <FileName>HighScoresState.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Labyrinth">
+    <Position X="2.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAcAAAAACgAAAAAAAAAAACAAAAg=</HashCode>
+      <FileName>Labyrinth.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MazeGenerator">
+    <Position X="5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIEAAAAAAAAAAQAAAAAAAAQAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MazeGenerator.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MazePrimitive&lt;NodeType&gt;">
+    <Position X="2.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAQAQAAAgAAAAAAAAAAAgAAAAAABAAg=</HashCode>
+      <FileName>MazePrimitive.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MazeSolver">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAACAAAACAAAQAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MazeSolver.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Player">
+    <Position X="13.25" Y="1.5" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="Player::PlayerAction" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Player.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>QAABAAEAAQAAAQCAACoAIgAAAhAAAAAAAAAABQAEAAA=</HashCode>
+      <FileName>Player.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextureManager">
+    <Position X="9.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABEAAAgAABAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TextureManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Tile">
+    <Position X="11.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAACAAAQAIAAAAAAhAAAAAAAAAABAAAAQA=</HashCode>
+      <FileName>Tile.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameState">
+    <Position X="0.5" Y="1" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="GameState::GameAction" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>GameState.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAgAQAAEAMAAAAAAAkBAAABABAAAAAEIAA=</HashCode>
+      <FileName>GameState.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameManager">
+    <Position X="11.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABABAAAABAIEAAAAIAQAAIGIAgAAAAMMAAEACABQAAA=</HashCode>
+      <FileName>GameManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="State">
+    <Position X="3.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAIAAAAAAAAAAAAIAAAAAAIEIAA=</HashCode>
+      <FileName>State.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MenuState">
+    <Position X="6.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAgIAAAAAAAAAAAMAAQAAAAAEAAA=</HashCode>
+      <FileName>MenuState.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OptionsState">
+    <Position X="7.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAIAAAAAABAMQAAAAAAAAABAAAQAAABAEAAA=</HashCode>
+      <FileName>OptionsState.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="Animation">
+    <Position X="9.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAgAAEAAAAgAAAAIAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Animation.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Enum Name="Directions">
+    <Position X="9.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAACACAAAAAAAI=</HashCode>
+      <FileName>Directions.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="TileType">
+    <Position X="11.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAAAAAAAAAAAAAAAAAAAQAIAAAAAAAAAA=</HashCode>
+      <FileName>Tile.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

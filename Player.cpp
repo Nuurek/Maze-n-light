@@ -116,6 +116,6 @@ Player::Player(Coordinates startPosition, TextureManager& textureManager, std::s
 sf::Vector2f Player::truePosition()
 {
 
-	return sf::Vector2f((static_cast<double>(position.y) + 0.5f) * static_cast<double>(Player::frameSize) + positionOffset.y, 
+	return sf::Vector2f((static_cast<float>(position.y) + 0.5f) * static_cast<float>(Player::frameSize) + positionOffset.y, 
 		(static_cast<float>(position.x) + 0.5f) * static_cast<float>(Player::frameSize) + positionOffset.x);
 }
