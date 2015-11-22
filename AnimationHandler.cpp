@@ -9,11 +9,12 @@ void AnimationHandler::addAnim(Animation & animation)
 
 void AnimationHandler::update(const float deltaTime)
 {
+	//If current animation is out of handler's range then return.
 	if (currentAnimation >= animations.size() || currentAnimation < 0)
 		return;
 
 	float duration = animations[currentAnimation].duration;
-
+	//Check if it is time for next frame.
 	unsigned int frame = static_cast<unsigned int>((time + deltaTime) / duration);
 	if (frame > static_cast<unsigned int>(time / duration))
 	{
@@ -25,13 +26,14 @@ void AnimationHandler::update(const float deltaTime)
 	}
 
 	time += deltaTime;
-
+	//If time reaches its maximum then nullify it.
 	if (time > duration * animations[currentAnimation].getLength())
 		time = 0.0f;
 }
 
 void AnimationHandler::changeAnimation(unsigned int animationID)
 {
+	//Change the animation to another. Return if ID is out of range.
 	if (currentAnimation == animationID || animationID >= animations.size() || animationID < 0)
 		return;
 

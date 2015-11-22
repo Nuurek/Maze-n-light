@@ -4,6 +4,7 @@
 
 void GameManager::loadTextures()
 {
+	//Map texture names to files.
 	textureManager.loadTexture("menuBackground", "media/menu_background.png");
 	textureManager.loadTexture("labyrinthBackground", "media/labyrinth_background.png");
 	textureManager.loadTexture("wallTexture", "media/wall.png");
@@ -14,6 +15,7 @@ void GameManager::loadTextures()
 
 void GameManager::loadTiles()
 {
+	//Create tile patterns.
 	Animation staticAnimation(0, 0, 1.0f);
 	auto staticAnimationVector = std::vector<Animation>(16, staticAnimation);
 	tileAtlas["tunnel"] = Tile(TileType::Tunnel, false, textureManager.getTexture("tileTexture"), staticAnimationVector);
@@ -23,6 +25,7 @@ void GameManager::loadTiles()
 
 void GameManager::loadStyleSheets()
 {
+	//Create GUIstyle sheets.
 	styleSheets["text"] = GuiStyle(std::make_shared<sf::Font>(fonts.at("main_font")), 0,
 		sf::Color(0x00, 0x00, 0x00, 0x00), sf::Color(0x00, 0x00, 0x00), sf::Color(0xff, 0xff, 0xff),
 		sf::Color(0x00, 0x00, 0x00, 0x00), sf::Color(0x00, 0x00, 0x00), sf::Color(0xff, 0x00, 0x00));
@@ -37,6 +40,7 @@ void GameManager::loadStyleSheets()
 
 void GameManager::loadFonts()
 {
+	//Load fonts from file.
 	sf::Font font;
 	font.loadFromFile("media/font.ttf");
 	this->fonts["main_font"] = font;
@@ -44,8 +48,10 @@ void GameManager::loadFonts()
 
 void GameManager::closeGame()
 {
+	//Pop all states (and run their destructors).
 	while (!states.empty())
 		popState();
+	//Close the window.
 	window.close();
 	
 }
@@ -85,11 +91,12 @@ void GameManager::gameLoop()
 		elapsed = clock.restart();
 		deltaTime = elapsed.asSeconds();
 
-		
+		//Pass time that has elapsed to state's functions.
 		currentState()->handleInput();
 		if (currentState() == nullptr)
 			continue; 
 		currentState()->update(deltaTime);
+		//Refresh screen.
 		window.clear(sf::Color::Black);
 		currentState()->draw(deltaTime);
 		window.display();
@@ -98,6 +105,7 @@ void GameManager::gameLoop()
 
 GameManager::GameManager()
 {
+	//Load all styles.
 	loadTextures();
 	loadTiles();
 	loadFonts();

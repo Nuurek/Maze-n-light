@@ -8,7 +8,7 @@
 class Player
 {
 	//Full time of a one movement action.
-	const float movementTime{ 0.1f };
+	float movementTime{ 0.1f };
 	//Current time of action.
 	float time;
 	//The number of pixels the player stands out from its position, based on the 'time' value.
@@ -44,6 +44,7 @@ public:
 	void update(float deltaTime);
 	//Draws the player on the windows.
 	void draw(sf::RenderWindow& window, float deltaTime);
+
 	Player() : currentAction(PlayerAction::Standing), currentDirection(Directions::Down), stepsCount(0) {};
 	Player(Coordinates startPosition, TextureManager& textureManager, std::shared_ptr<Labyrinth> labyrinth);
 };

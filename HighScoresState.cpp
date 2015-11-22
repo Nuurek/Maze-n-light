@@ -22,6 +22,7 @@ void HighScoresState::saveHighScores(std::string filename)
 
 void HighScoresState::resetHighScores()
 {
+	//Default random high scores.
 	highScores = {
 		std::make_pair("Caterina" , 100),
 		std::make_pair("Reggie" , 90),

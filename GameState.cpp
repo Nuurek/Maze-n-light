@@ -38,20 +38,33 @@ void GameState::loadGameStateConfig()
 
 void GameState::addScore(std::pair<std::string, unsigned int> newScore)
 {
+	//Load highscores from file and create array of scores.
 	std::fstream file(game->scoresFilename);
 	std::array<std::pair<std::string, unsigned int>, 10> highScores;
 	for (unsigned int index = 0; index < game->highScoresNumber; index++)
 		file >> highScores[index].first >> highScores[index].second;
 	file.close();
 
-	unsigned int index = game->highScoresNumber - 1;
-	while (index > 0 && newScore.second > highScores[index].second)
+	int index = game->highScoresNumber - 1;
+	//If new score is less than lowest high score then return.
+	if (newScore.second <= highScores[index].second)
+		return;
+	//If new score should be last on the highscores list.
+	else if (newScore.second <= highScores[index - 1].second)
 	{
-		highScores[index] = highScores[index - 1];
-		--index;
+		highScores[index] = newScore;
 	}
-	highScores[index] = newScore;
-
+	else
+	{
+		//Check where new score should be put in.
+		while ((index > 0) && (newScore.second > highScores[index - 1].second))
+		{
+			highScores[index] = highScores[index - 1];
+			--index;
+		}
+		highScores[index] = newScore;
+	}
+	//Save to file.
 	file.open(game->scoresFilename);
 	for (auto score : highScores)
 		file << score.first << "\t" << score.second << "\n";
@@ -60,11 +73,14 @@ void GameState::addScore(std::pair<std::string, unsigned int> newScore)
 
 void GameState::draw(const float deltaTime)
 {
+	//Get position of player in window coordinates.
 	auto truePosition = player.truePosition();
+	//Center views on player coordinates.
 	gameView.setCenter(truePosition);
 	guiView.setCenter(truePosition);
 	game->window.setView(gameView);
 	game->window.clear(sf::Color::Black);
+	//Draw labyrinth and player.
 	labyrinth.draw(game->window, deltaTime);
 	player.draw(game->window, deltaTime);
 
@@ -72,6 +88,7 @@ void GameState::draw(const float deltaTime)
 	guiSystem.at("menu").setPosition(truePosition.x - game->window.getSize().x / 2 + guiSystem.at("menu").getOrigin().x, 
 		truePosition.y - game->window.getSize().y / 2 + guiSystem.at("menu").getOrigin().y);
 	guiSystem.at("final").setPosition(truePosition.x, truePosition.y - 3.0f * guiSystem.at("final").getOrigin().y);
+	//Draw GUIs.
 	for (auto& gui : guiSystem)
 	{
 		game->window.draw(gui.second);
@@ -83,6 +100,7 @@ void GameState::update(const float deltaTime)
 	switch(currentAction)
 	{
 		case(GameAction::Playing):
+			//If player reaches the end.
 			if (player.position == labyrinth.exit)
 			{
 				currentAction = GameAction::Final;
@@ -97,7 +115,7 @@ void GameState::update(const float deltaTime)
 
 				text = guiSystem.at("final").entries[3].text.getString();
 				unsigned int score = static_cast<unsigned int>(static_cast<float>(labyrinth.shortestPathLength / static_cast<float>(player.stepsCount))
-					* static_cast<float>(labyrinth.width + labyrinth.height));
+					* static_cast<float>(labyrinth.width * labyrinth.height));
 				text += std::to_string(score);
 				guiSystem.at("final").entries[3].text.setString(text);
 

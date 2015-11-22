@@ -28,15 +28,20 @@ void MazeSolver::loadLabyrinth(Labyrinth & labyrinth)
 
 auto MazeSolver::solveMaze(Coordinates start, Coordinates goal) -> Solution
 {
+	//Array of boolean values that indicates whether tile was visited or not.
 	std::vector<bool> visited(width * height, false);
+	//Map that maps the tile to the tile from which an algorithm has come. 
 	std::unordered_map<unsigned int, unsigned int> cameFrom;
+	//Queue for BFS.
 	std::queue<unsigned int> queue;
 	unsigned int length = 0;
 
 	bool goalReached = false;
+	//Convert 2D indexes to 1D index.
 	unsigned int startIndex = index(start.x, start.y);
 	unsigned int goalIndex = index(goal.x, goal.y);
 	unsigned int current = startIndex;
+	//Start standard BFS that will stop if it reach the exit.
 	queue.push(current);
 	visited[current] = true;
 	cameFrom[current] = current;
@@ -63,7 +68,8 @@ auto MazeSolver::solveMaze(Coordinates start, Coordinates goal) -> Solution
 		if (goalReached)
 			break;
 	}
-	
+	//Create a vector indicating a path from start to exit.
+	//Backtrack from the exit using map.
 	std::vector<Coordinates> path;
 	path.emplace_back(goal);
 	unsigned int prev = cameFrom[goalIndex];
@@ -73,7 +79,7 @@ auto MazeSolver::solveMaze(Coordinates start, Coordinates goal) -> Solution
 		path.emplace_back(indexToCoordinates(prev));
 		prev = cameFrom[prev];
 	} while (prev != cameFrom[prev]);
-
+	//Reverse path so that it will start from the start, not the end.
 	std::reverse(path.begin(), path.end());
 	
 	return Solution(length, path);
